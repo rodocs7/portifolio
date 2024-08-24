@@ -38,8 +38,6 @@ function toggleMenu() {
 
 
 
-
-
 class contact {
     constructor(settings) {
       this.settings = settings;
@@ -105,4 +103,3 @@ class contact {
     error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
   });
   formSubmit.init();
-  
