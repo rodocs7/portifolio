@@ -34,7 +34,7 @@ function toggleMenu() {
 //         }
 //     });
 // });
-class Contact {
+class contact {
     constructor(settings) {
       this.settings = settings;
       this.form = document.querySelector(settings.form);
