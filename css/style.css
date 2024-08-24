@@ -235,9 +235,9 @@ footer {
     box-shadow: 0 0 0 0.3rem var(--main-color);
 }
 
-.btn {
+/* .btn {
     color: #ffffff;
-}
+} */
 
 
 
@@ -456,7 +456,7 @@ footer {
     max-height: 100%; /* Expande para mostrar todo o conteúdo */
 }
 
-.btn {
+/* .btn {
     background-color: var(--main-color);
     color: #fff;
     display: inline-block;
@@ -466,14 +466,14 @@ footer {
     margin-top: 1.2rem;
     font-weight: 600;
     transition: background-color 0.3s ease;
-}
-
+} */
+/* 
 .btn:hover {
     box-shadow: 0 0 0.3rem var(--main-color);; /* Cor mais escura ao passar o mouse */
     background-color: inherit;
     color: var(--main-color);
     cursor: pointer;
-    }
+    } */
 
 
 
