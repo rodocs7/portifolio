@@ -505,12 +505,14 @@ body {
 
 label,
 input,
-textarea {
+textarea,
+button {
   display: block;
 }
 
 input,
-textarea {
+textarea,
+button {
   width: 100%;
   font: inherit;
   padding: 1.25rem;
@@ -546,25 +548,25 @@ textarea {
   resize: vertical;
 }
 
-/* button {
+button {
   border: none;
   border-radius: 99px;
   color: white;
   background: #1d90f5;
   cursor: pointer;
   transition: 0.3s;
-} */
+}
 
-/* button:hover,
+button:hover,
 button:focus {
   outline: none;
   background: #1c70d3;
-} */
+}
 
-/* button:disabled {
+button:disabled {
   cursor: not-allowed;
   background: #555b69;
-} */
+}
 
 .success,
 .error {
@@ -605,12 +607,14 @@ button:focus {
   
   label,
   input,
-  textarea {
+  textarea,
+  button {
     display: block;
   }
   
   input,
-  textarea {
+  textarea,
+  button {
     width: 100%;
     font: inherit;
     padding: 1.25rem;
