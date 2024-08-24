@@ -41,7 +41,7 @@ class contact {
     constructor(settings) {
       this.settings = settings;
       this.form = document.querySelector(settings.form);
-      this.formButton = document.querySelector(settings.button);
+      this.formButton = document.querySelector(settings.btn);
       if (this.form) {
         this.url = this.form.getAttribute("action");
       }
