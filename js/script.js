@@ -37,7 +37,7 @@ function toggleMenu() {
 
 
 
-class Contact {
+class contact {
     constructor(settings) {
       this.settings = settings;
       this.form = document.querySelector(settings.form);
@@ -95,7 +95,7 @@ class Contact {
     }
   }
   
-  const formSubmit = new Contact({
+  const formSubmit = new FormSubmit({
     form: "[data-form]",
     button: "[data-button]",
     success: "<h1 class='success'>Mensagem enviada!</h1>",
