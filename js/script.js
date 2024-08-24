@@ -36,68 +36,67 @@ function toggleMenu() {
 // });
 
 
-class Contact {
-    constructor(settings) {
-      this.settings = settings;
-      this.form = document.querySelector(settings.form);
-      this.formButton = document.querySelector(settings.button);
-      if (this.form) {
-        this.url = this.form.getAttribute("action");
-      }
-      this.sendForm = this.sendForm.bind(this);
+class FormSubmit {
+  constructor(settings) {
+    this.settings = settings;
+    this.form = document.querySelector(settings.form);
+    this.formButton = document.querySelector(settings.button);
+    if (this.form) {
+      this.url = this.form.getAttribute("action");
     }
-  
-    displaySuccess() {
-      this.form.innerHTML = this.settings.success;
-    }
-  
-    displayError() {
-      this.form.innerHTML = this.settings.error;
-    }
-  
-    getFormObject() {
-      const formObject = {};
-      const fields = this.form.querySelectorAll("[name]");
-      fields.forEach((field) => {
-        formObject[field.getAttribute("name")] = field.value;
+    this.sendForm = this.sendForm.bind(this);
+  }
+
+  displaySuccess() {
+    this.form.innerHTML = this.settings.success;
+  }
+
+  displayError() {
+    this.form.innerHTML = this.settings.error;
+  }
+
+  getFormObject() {
+    const formObject = {};
+    const fields = this.form.querySelectorAll("[name]");
+    fields.forEach((field) => {
+      formObject[field.getAttribute("name")] = field.value;
+    });
+    return formObject;
+  }
+
+  onSubmission(event) {
+    event.preventDefault();
+    event.target.disabled = true;
+    event.target.innerText = "Enviando...";
+  }
+
+  async sendForm(event) {
+    try {
+      this.onSubmission(event);
+      const formData = new FormData(this.form); // Corrigido para usar FormData
+
+      await fetch(this.url, {
+        method: "POST",
+        body: formData,
       });
-      return formObject;
-    }
-  
-    onSubmission(event) {
-      event.preventDefault();
-      event.target.disabled = true;
-      event.target.innerText = "Enviando...";
-    }
-  
-    async sendForm(event) {
-      try {
-        this.onSubmission(event);
-        const formData = new FormData(this.form); // Corrigido para usar FormData
-  
-        await fetch(this.url, {
-          method: "POST",
-          body: formData,
-        });
-        this.displaySuccess();
-      } catch (error) {
-        this.displayError();
-        console.error(error); // Ajuste para capturar e registrar erros
-      }
-    }
-  
-    init() {
-      if (this.form) this.formButton.addEventListener("click", this.sendForm);
-      return this;
+      this.displaySuccess();
+    } catch (error) {
+      this.displayError();
+      console.error(error); // Ajuste para capturar e registrar erros
     }
   }
-  
-  const formSubmit = new Contact({
-    form: "[data-form]",
-    button: "[data-button]",
-    success: "<h1 class='success'>Mensagem enviada!</h1>",
-    error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
-  });
-  
-  formSubmit.init();
-  
+
+  init() {
+    if (this.form) this.formButton.addEventListener("click", this.sendForm);
+    return this;
+  }
+}
+
+const formSubmit = new FormSubmit({
+  form: "[data-form]",
+  button: "[data-button]",
+  success: "<h1 class='success'>Mensagem enviada!</h1>",
+  error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
+});
+
+formSubmit.init();
