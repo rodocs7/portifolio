@@ -37,8 +37,7 @@ function toggleMenu() {
 
 
 
-
-class contact {
+class Contact {
     constructor(settings) {
       this.settings = settings;
       this.form = document.querySelector(settings.form);
@@ -68,8 +67,8 @@ class contact {
   
     onSubmission(event) {
       event.preventDefault();
-      event.target.disabled = true;
-      event.target.innerText = "Enviando...";
+      this.formButton.disabled = true;
+      this.formButton.innerText = "Enviando...";
     }
   
     async sendForm(event) {
@@ -96,10 +95,11 @@ class contact {
     }
   }
   
-  const formSubmit = new FormSubmit({
+  const formSubmit = new Contact({
     form: "[data-form]",
     button: "[data-button]",
     success: "<h1 class='success'>Mensagem enviada!</h1>",
     error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
   });
   formSubmit.init();
+  
