@@ -35,8 +35,6 @@ function toggleMenu() {
 //     });
 // });
 
-
-
 class FormSubmit {
     constructor(settings) {
       this.settings = settings;
@@ -74,18 +72,16 @@ class FormSubmit {
     async sendForm(event) {
       try {
         this.onSubmission(event);
+        const formData = new FormData(this.form); // Corrigido para usar FormData
+  
         await fetch(this.url, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(this.getFormObject()),
+          body: formData,
         });
         this.displaySuccess();
       } catch (error) {
         this.displayError();
-        throw new Error(error);
+        console.error(error); // Ajuste para capturar e registrar erros
       }
     }
   
@@ -101,4 +97,6 @@ class FormSubmit {
     success: "<h1 class='success'>Mensagem enviada!</h1>",
     error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
   });
+  
   formSubmit.init();
+  
