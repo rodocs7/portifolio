@@ -110,9 +110,10 @@
    <!-- /service section -->
 
    <!-- contact section -->
+    
    <section class="contact" id="contact">
         <h2>Me <span>contate!</span></h2>
-        <form id="contact-form">
+        <form action="https://formsubmit.co/r.ferrazmariucci@gmail.com" method="POST">
             <div class="input-box">
                 <input type="text" id="name" placeholder="Nome Completo" required>
                 <input type="email" id="email" placeholder="E-mail" required>
@@ -123,6 +124,7 @@
             <button type="submit" class="btn">Enviar mensagem</button>
         </form>
    </section>
+
    <!-- /contact section -->
 
    <!-- footer -->
@@ -131,36 +133,5 @@
 
    <script src="js/script.js"></script>  
 
-   <!-- JavaScript para lidar com o envio do formulário -->
-   <script>
-       document.getElementById('contact-form').addEventListener('submit', function(event) {
-           event.preventDefault();
-
-           const formData = {
-               name: document.getElementById('name').value,
-               email: document.getElementById('email').value,
-               phone: document.getElementById('phone').value,
-               subject: document.getElementById('subject').value,
-               message: document.getElementById('message').value,
-           };
-
-           fetch('http://localhost:3000/send-email', {
-               method: 'POST',
-               headers: {
-                   'Content-Type': 'application/json',
-               },
-               body: JSON.stringify(formData),
-           })
-           .then(response => response.json())
-           .then(data => {
-               alert(data.message);
-           })
-           .catch(error => {
-               console.error('Erro:', error);
-           });
-       });
-   </script>
-
-<script src="js/script.js"></script>
 </body>
 </html>
