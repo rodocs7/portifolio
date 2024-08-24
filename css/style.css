@@ -707,3 +707,49 @@ button:disabled {
 .home-img:hover {
     transform: scale(1.05); /* Aumenta o tamanho do home-content quando o mouse passar por cima */
 /* } */ 
+
+/* Unificação de .btn e button */
+.btn,
+button {
+    background-color: var(--main-color);
+    color: var(--bg-color-02);
+    display: inline-block;
+    padding: 1.25rem;
+    border-radius: 99px;
+    font-weight: 700;
+    width: 40%;
+    
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1.2rem;
+    border: none;
+}
+
+.btn:hover,
+button:hover,
+button:focus {
+    background-color: #1c70d3;
+    box-shadow: 0 0 0.3rem var(--main-color); /* Sombra ao passar o mouse */
+    color: var(--main-color);
+    outline: none;
+}
+
+.btn:disabled,
+button:disabled {
+    cursor: not-allowed;
+    background-color: #555b69;
+}
+
+label,
+input,
+textarea {
+    display: block;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 1.25rem;
+    font-weight: 700;
+    font: inherit;
+}
