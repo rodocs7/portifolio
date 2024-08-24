@@ -92,7 +92,7 @@ class FormSubmit {
     }
   }
   
-  const formSubmit = new contact({
+  const formSubmit = new FormSubmit({
     form: "[data-form]",
     button: "[data-button]",
     success: "<h1 class='success'>Mensagem enviada!</h1>",
