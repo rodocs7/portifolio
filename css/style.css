@@ -615,7 +615,7 @@ button:disabled {
   input,
   textarea,
   button {
-    width: 100%;
+    width: 40%;
     font: inherit;
     padding: 1.25rem;
     font-weight: 700;
