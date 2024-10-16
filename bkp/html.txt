@@ -99,7 +99,7 @@
                         Por acesso remoto ou no local.
                         
                         
-                        <br>Configuração de redes, formatações.
+                        <br>Configuração de redes e infraestrutura
                         <p>
                         Configuração de backups na nuvem e ativações de licenças.
                 
